@@ -6,6 +6,5 @@ export default function cleanSet(set, ststr) {
       arr.push(str.slice(ststrlen));
     }
   }
-  console.log(typeof arr.join('-'));
   return arr.join('-');
 }
