@@ -14,6 +14,7 @@ const app = http.createServer((req, res) => {
     res.write('Hello Holberton School!');
   } else if (req.url === '/students') {
     try {
+      res.write('This is the list of our students\n');
       const buffer = fs.readFileSync(DB, 'utf-8');
       const bufferList = buffer.split('\n').slice(1);
       const filtered = bufferList.filter((n) => n !== '');
