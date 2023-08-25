@@ -12,7 +12,7 @@ describe('Index page', () => {
     it('should return the correct result', () => {
         request('http://localhost:7865', (err, response, body) => {
             if (err) console.log(err);
-            chai.expect(body).to.deep.equal('Welcome to the payment system');
+            chai.expect(body).to.deep.equal('Welcome to the payment system\n');
         });
     });
 });
