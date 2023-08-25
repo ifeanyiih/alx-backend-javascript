@@ -24,6 +24,7 @@ describe('cart page', () => {
         request('http://localhost:7865/cart/2', (err, response, body) => {
             if (err) console.log(err);
             chai.expect(response.statusCode).to.equal(200);
+            chai.expect(body).to.equal('Payment methods for cart 2');
             done();
         });
     });
