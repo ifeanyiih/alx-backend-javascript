@@ -3,24 +3,19 @@ const Utils = require('./utils.js');
 const sinon = require('sinon');
 const assert = require('assert');
 
-describe("Use Utils as a spy", function () {
-    const sandbox = sinon.createSandbox();
-
-    beforeEach(function () {
-        sandbox.spy(Utils);
-    });
-
-    afterEach(function () {
-        sandbox.restore();
-    });
+describe("sendPaymentRequestToApi", function () {
 
     it("Utils.calculateNumber is called once", () => {
+        const spy = sinon.spy(Utils, "calculateNumber");
         sendPaymentRequestToApi(100, 20);
-        assert.equal(Utils.calculateNumber.calledOnce, true);
+        assert(spy.calledOnce);
+        Utils.calculateNumber.restore();
     });
 
     it("Utils.calculateNumber is called with the right args", () => {
+        const spy = sinon.spy(Utils, "calculateNumber");
         sendPaymentRequestToApi(100, 20);
-        assert.equal(Utils.calculateNumber.calledWith('SUM', 100, 20), true);
+        assert(spy.calledWith('SUM', 100, 20));
+        Utils.calculateNumber.restore();
     });
 });
